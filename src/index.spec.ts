@@ -17,6 +17,14 @@ describe('index', () => {
         });
     });
 
+    it('parses c# controller without issues', async () => {
+        await OpenAPI.generate({
+            input: './test/spec/v3.json',
+            output: './generated/v3/',
+            write: false,
+        });
+    });
+
     it('downloads and parses v2 without issues', async () => {
         await OpenAPI.generate({
             input: 'https://raw.githubusercontent.com/ferdikoomen/openapi-typescript-codegen/master/test/spec/v2.json',
