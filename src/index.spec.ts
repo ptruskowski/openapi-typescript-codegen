@@ -1,4 +1,4 @@
-import OpenAPI from './index';
+import OpenAPI, { HttpClient } from './index';
 
 describe('index', () => {
     it('parses v2 without issues', async () => {
@@ -19,9 +19,15 @@ describe('index', () => {
 
     it('parses c# controller without issues', async () => {
         await OpenAPI.generate({
-            input: './test/spec/v3.json',
-            output: './generated/v3/',
-            write: false,
+            input: './test/spec/c#.json',
+            output: './test/generated/v3/',
+            httpClient: HttpClient.AXIOS,
+            useOptions: true,
+            useUnionTypes: true,
+            exportCore: true,
+            exportSchemas: true,
+            exportModels: true,
+            exportServices: true,
         });
     });
 
